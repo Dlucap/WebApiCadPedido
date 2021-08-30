@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CadPedido.Api.Controllers
 {
-  //[Authorize]
+  [Authorize]
   [Route("api/[controller]")]
   [ApiController]
   public class PedidoController : ControllerBase

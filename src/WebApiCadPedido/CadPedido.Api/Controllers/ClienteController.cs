@@ -3,6 +3,7 @@ using CadPedido.Api.ApiModel;
 using CadPedido.Business.Interfaces.IRepository;
 using CadPedido.Business.Interfaces.IServices;
 using CadPedido.Business.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CadPedido.Api.Controllers
 {
-  // [Authorize]
+  [Authorize]
   [Route("api/[controller]")]
   [ApiController]
   public class ClienteController : ControllerBase
