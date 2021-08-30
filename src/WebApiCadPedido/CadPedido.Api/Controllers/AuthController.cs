@@ -37,7 +37,7 @@ namespace CadPedido.Api.Controllers
     /// <param name="registerUser"></param>
     /// <returns></returns>
     /// <response code="200"> Sucesso </response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="404"> Não Encontrado</response>
     [HttpPost("nova-conta")]
     public async Task<ActionResult> Registrar(RegisterUserViewModel registerUser)
     {
@@ -67,7 +67,7 @@ namespace CadPedido.Api.Controllers
     /// <param name="registerUser"></param>
     /// <returns>Retorna token para acesso a Api</returns>
     /// <response code="200"> Sucesso </response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="404"> Não Encontrado</response>
     [HttpPost("login")]
     public async Task<ActionResult> Login(LoginUserViewModel loginUser)
     {

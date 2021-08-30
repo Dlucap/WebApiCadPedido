@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.Json.Serialization;
 
 namespace CadPedido.Business.Models
 {
@@ -8,7 +9,10 @@ namespace CadPedido.Business.Models
     public Guid ProdutoId { get; set; }       
     public int Quantidade { get; set; }       
     public decimal Total { get; set; }
+    /*EF Relation*/
+    [JsonIgnore]
     public Pedido Pedido { get; set; }
+    [JsonIgnore]
     public Produto Produto { get; set; }
   }
 }

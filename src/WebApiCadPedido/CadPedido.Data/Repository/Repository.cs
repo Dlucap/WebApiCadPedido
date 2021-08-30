@@ -56,21 +56,8 @@ namespace CadPedido.Data.Repository
     }
 
     public async Task<int> SaveChanges()
-    { //  await Db.Database.CommitTransactionAsync();
-      //}
-      //catch (Exception ex)
-      //{
-      //  await Db.Database.RollbackTransactionAsync();
-      //  throw new Exception(ex.Message);        
-      //}
-      return await Db.SaveChangesAsync();
-        //  await Db.Database.CommitTransactionAsync();
-      //}
-      //catch (Exception ex)
-      //{
-      //  await Db.Database.RollbackTransactionAsync();
-      //  throw new Exception(ex.Message);        
-      //}
+    { 
+      return await Db.SaveChangesAsync();       
     }
 
     public void Dispose()

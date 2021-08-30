@@ -17,7 +17,7 @@ namespace CadPedido.Api.Configuracao
        var stringSqlconnection = configuration.GetConnectionString("CadPedidoApi");
 
       services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(stringSqlconnection));
+                options.UseSqlServer(stringSqlconnection).EnableSensitiveDataLogging());
 
       services.AddIdentity<IdentityUser, IdentityRole>()
         .AddRoles<IdentityRole>()

@@ -1,5 +1,6 @@
 ﻿using CadPedido.Business.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 using System.Linq;
 
 namespace CadPedido.Data.Context
@@ -13,10 +14,10 @@ namespace CadPedido.Data.Context
     public DbSet<Pedido> Pedido { get; set; }
     public DbSet<PedidoItem> PedidoItem { get; set; }
     public DbSet<Produto> Produto { get; set; }
-    #endregion DBSet
+    #endregion DBSet 
 
     protected override void OnModelCreating(ModelBuilder builder)
-    {
+    {    
       foreach (var property in builder.Model.GetEntityTypes()
           .SelectMany(e => e.GetProperties()
               .Where(p => p.ClrType == typeof(string))))

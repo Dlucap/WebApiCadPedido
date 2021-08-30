@@ -3,6 +3,7 @@ using CadPedido.Api.ApiModel;
 using CadPedido.Business.Interfaces.IRepository;
 using CadPedido.Business.Interfaces.IServices;
 using CadPedido.Business.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace CadPedido.Api.Controllers
 {
+  //[Authorize]
   [Route("api/[controller]")]
   [ApiController]
   public class ProdutoController : ControllerBase
@@ -28,11 +30,11 @@ namespace CadPedido.Api.Controllers
     }
 
     /// <summary>
-    /// Retorna todos os produtos cadastrados (não recomendado)
-    /// </summary>
+    /// Retorna todos os produtos cadastrados 
     /// <returns></returns>
     /// <response code="200"> Sucesso </response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="404"> Não Encontrado</response>
+    /// <response code="500"> Erro Interno do Servidor</response>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ProdutoApiModel>>> GetProduto()
     {
@@ -51,7 +53,8 @@ namespace CadPedido.Api.Controllers
     /// <param name="id"></param>
     /// <returns>Retorna produto por Id</returns>
     ///  <response code="200"> Sucesso </response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="404"> Não Encontrado</response>
+    /// <response code="500"> Erro Interno do Servidor</response>
     [HttpGet("{id}")]
     public async Task<ActionResult<Produto>> GetProduto(Guid id)
     {
@@ -68,7 +71,8 @@ namespace CadPedido.Api.Controllers
     /// </summary>
     /// <param name="value"></param>
     /// <response code="200"> Sucesso </response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="404"> Não Encontrado</response>
+    /// <response code="500"> Erro Interno do Servidor</response>
     [HttpPost]
     public async Task<ActionResult<Produto>> Post(ProdutoApiModel produtoApiModel)
     {
@@ -79,7 +83,7 @@ namespace CadPedido.Api.Controllers
 
       await _produtoRepository.Adicionar(produtoEntity);
 
-      return CreatedAtAction("GetCompra", new { id = produtoApiModel.Id }, produtoApiModel);
+      return CreatedAtAction("GetProduto", new { id = produtoApiModel.Id }, produtoApiModel);
     }
 
     /// <summary>
@@ -88,7 +92,8 @@ namespace CadPedido.Api.Controllers
     /// <param name="id"></param>
     /// <param name="produtoApiModel"></param>
     /// <response code="200"> Sucesso </response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="404"> Não Encontrado</response>
+    /// <response code="500"> Erro Interno do Servidor</response>
     [HttpPut("{id}")]
     public async Task<IActionResult> Put(Guid id, ProdutoApiModel produtoApiModel)
     {
@@ -108,7 +113,8 @@ namespace CadPedido.Api.Controllers
     /// </summary>
     /// <param name="id"></param>
     /// <response code="204"> Item Deletado com sucesso</response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="404"> Não Encontrado</response>
+    /// <response code="500"> Erro Interno do Servidor</response>
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
@@ -124,7 +130,7 @@ namespace CadPedido.Api.Controllers
 
     private async Task<ProdutoApiModel> ObterProdutoPorId(Guid id)
     {
-      var produto = await _produtoRepository.ObterPorId(id);
+      var produto = await _produtoRepository.ObterProdutoPorId(id);
       return _mapper.Map<ProdutoApiModel>(produto);
     }
   }

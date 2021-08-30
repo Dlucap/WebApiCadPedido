@@ -1,6 +1,6 @@
 ﻿using AutoMapper;
 using CadPedido.Api.ApiModel;
-using CadPedido.Business.Interfaces;
+using CadPedido.Business.Interfaces.IRepository;
 using CadPedido.Business.Interfaces.IServices;
 using CadPedido.Business.Models;
 using Microsoft.AspNetCore.Mvc;
@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 
 namespace CadPedido.Api.Controllers
 {
+  // [Authorize]
   [Route("api/[controller]")]
   [ApiController]
   public class ClienteController : ControllerBase
@@ -30,7 +31,9 @@ namespace CadPedido.Api.Controllers
     /// </summary>
     /// <returns>Retorna todos os clientes (não recomendado)</returns>
     /// <response code="200"> Sucesso </response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="401"> Acesso não Autorizado</response>
+    /// <response code="404"> Não Encontrado</response>
+    /// <response code="500"> Erro Interno do Servidor</response>
     [HttpGet]
     public async Task<ActionResult<IEnumerable<ClienteApiModel>>> GetCliente()
     {
@@ -49,7 +52,9 @@ namespace CadPedido.Api.Controllers
     /// <param name="id"></param>
     /// <returns>Retorna Cliente Por ID</returns>
     /// <response code="200"> Sucesso </response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="401"> Acesso não Autorizado</response>
+    /// <response code="404"> Não Encontrado</response>
+    /// <response code="500"> Erro Interno do Servidor</response>
     [HttpGet("{id}")]
     public async Task<ActionResult<Cliente>> GetCliente(Guid id)
     {
@@ -67,7 +72,9 @@ namespace CadPedido.Api.Controllers
     /// <param name="clienteApiModel"></param>
     /// <returns>Cadastrar um novo cliente</returns>
     /// <response code="200"> Sucesso </response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="401"> Acesso não Autorizado</response>
+    /// <response code="404"> Não Encontrado</response>
+    /// <response code="500"> Erro Interno do Servidor</response>
     [HttpPost]
     public async Task<ActionResult<Cliente>> PostCliente(ClienteApiModel clienteApiModel)
     {
@@ -78,7 +85,7 @@ namespace CadPedido.Api.Controllers
 
       await _clienteRepository.Adicionar(clienteEntity);
       
-      return CreatedAtAction("GetCompra", new { id = clienteApiModel.Id }, clienteApiModel);
+      return CreatedAtAction("GetCliente", new { id = clienteEntity.Id }, clienteApiModel);
 
     }
 
@@ -89,7 +96,9 @@ namespace CadPedido.Api.Controllers
     /// <param name="clienteApiModel"></param>
     /// <returns>Atualiza dados do cliente </returns>
     /// <response code="200"> Sucesso </response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="401"> Acesso não Autorizado</response>
+    /// <response code="404"> Não Encontrado</response>
+    /// <response code="500"> Erro Interno do Servidor</response>
     [HttpPut("{id}")]
     public async Task<IActionResult> PutCliente(Guid id, ClienteApiModel clienteApiModel)
     {
@@ -110,7 +119,9 @@ namespace CadPedido.Api.Controllers
     /// <param name="id"></param>
     /// <returns>Deleta o cliente por Id</returns>
     /// <response code="204"> Item Deletado com sucesso</response>
-    /// <response code="404"> Requisição</response>
+    /// <response code="401"> Acesso não Autorizado</response>
+    /// <response code="404"> Não Encontrado</response>
+    /// <response code="500"> Erro Interno do Servidor</response>
     [HttpDelete("{id}")]
     public async Task<IActionResult> Delete(Guid id)
     {
@@ -131,7 +142,7 @@ namespace CadPedido.Api.Controllers
     /// <returns>Retorna o cliente desejado</returns>
     private async Task<ClienteApiModel> ObterClientePorId(Guid id)
     {
-      var compra = await _clienteRepository.ObterPorId(id);
+      var compra = await _clienteRepository.ObterClientePorId(id);
       return _mapper.Map<ClienteApiModel>(compra);
     }
     

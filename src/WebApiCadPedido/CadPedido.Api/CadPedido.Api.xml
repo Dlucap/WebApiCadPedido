@@ -11,7 +11,7 @@
             <param name="registerUser"></param>
             <returns></returns>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="404"> Não Encontrado</response>
         </member>
         <member name="M:CadPedido.Api.Controllers.AuthController.Login(CadPedido.Api.ApiModels.LoginUserViewModel)">
             <summary>
@@ -20,7 +20,7 @@
             <param name="registerUser"></param>
             <returns>Retorna token para acesso a Api</returns>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="404"> Não Encontrado</response>
         </member>
         <member name="M:CadPedido.Api.Controllers.AuthController.GerarJwt(System.String)">
             <summary>
@@ -35,7 +35,9 @@
             </summary>
             <returns>Retorna todos os clientes (não recomendado)</returns>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="401"> Acesso não Autorizado</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
         <member name="M:CadPedido.Api.Controllers.ClienteController.GetCliente(System.Guid)">
             <summary>
@@ -44,7 +46,9 @@
             <param name="id"></param>
             <returns>Retorna Cliente Por ID</returns>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="401"> Acesso não Autorizado</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
         <member name="M:CadPedido.Api.Controllers.ClienteController.PostCliente(CadPedido.Api.ApiModel.ClienteApiModel)">
             <summary>
@@ -53,7 +57,9 @@
             <param name="clienteApiModel"></param>
             <returns>Cadastrar um novo cliente</returns>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="401"> Acesso não Autorizado</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
         <member name="M:CadPedido.Api.Controllers.ClienteController.PutCliente(System.Guid,CadPedido.Api.ApiModel.ClienteApiModel)">
             <summary>
@@ -63,7 +69,9 @@
             <param name="clienteApiModel"></param>
             <returns>Atualiza dados do cliente </returns>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="401"> Acesso não Autorizado</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
         <member name="M:CadPedido.Api.Controllers.ClienteController.Delete(System.Guid)">
             <summary>
@@ -72,7 +80,9 @@
             <param name="id"></param>
             <returns>Deleta o cliente por Id</returns>
             <response code="204"> Item Deletado com sucesso</response>
-            <response code="404"> Requisição</response>
+            <response code="401"> Acesso não Autorizado</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
         <member name="M:CadPedido.Api.Controllers.ClienteController.ObterClientePorId(System.Guid)">
             <summary>
@@ -85,29 +95,32 @@
             <summary>
             Retorna todos os Pedidos 
             </summary>
-            <returns>Retorna todos os clientes (não recomendado)</returns>
+            <returns>Retorna todos os clientes </returns>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
-        <member name="M:CadPedido.Api.Controllers.PedidoController.GetCliente(System.Guid)">
+        <member name="M:CadPedido.Api.Controllers.PedidoController.GetPedido(System.Guid)">
             <summary>
             Retorna Pedidos  Por ID
             </summary>
             <param name="id"></param>
             <returns>Retorna Cliente Por ID</returns>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
-        <member name="M:CadPedido.Api.Controllers.PedidoController.PostCliente(CadPedido.Api.ApiModel.PedidoApiModel)">
+        <member name="M:CadPedido.Api.Controllers.PedidoController.PostPedido(CadPedido.Api.ApiModel.PedidoApiModel)">
             <summary>
             Cadastrar um novo pedido
             </summary>
             <param name="pedidoApiModel"></param>
             <returns>Cadastrar um novo cliente</returns>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
-        <member name="M:CadPedido.Api.Controllers.PedidoController.PutCliente(System.Guid,CadPedido.Api.ApiModel.PedidoApiModel)">
+        <member name="M:CadPedido.Api.Controllers.PedidoController.PutPedido(System.Guid,CadPedido.Api.ApiModel.PedidoApiModel)">
             <summary>
             Atualiza dados do pedido 
             </summary>
@@ -115,7 +128,8 @@
             <param name="clienteApiModel"></param>
             <returns>Atualiza dados do cliente </returns>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
         <member name="M:CadPedido.Api.Controllers.PedidoController.Delete(System.Guid)">
             <summary>
@@ -124,16 +138,10 @@
             <param name="id"></param>
             <returns>Deleta o cliente por Id</returns>
             <response code="204"> Item Deletado com sucesso</response>
-            <response code="404"> Requisição</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
-        <member name="M:CadPedido.Api.Controllers.ProdutoController.GetProduto">
-            <summary>
-            Retorna todos os produtos cadastrados (não recomendado)
-            </summary>
-            <returns></returns>
-            <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
-        </member>
+        <!-- Badly formed XML comment ignored for member "M:CadPedido.Api.Controllers.ProdutoController.GetProduto" -->
         <member name="M:CadPedido.Api.Controllers.ProdutoController.GetProduto(System.Guid)">
             <summary>
             Retorna produto por Id
@@ -141,7 +149,8 @@
             <param name="id"></param>
             <returns>Retorna produto por Id</returns>
              <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
         <member name="M:CadPedido.Api.Controllers.ProdutoController.Post(CadPedido.Api.ApiModel.ProdutoApiModel)">
             <summary>
@@ -149,7 +158,8 @@
             </summary>
             <param name="value"></param>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
         <member name="M:CadPedido.Api.Controllers.ProdutoController.Put(System.Guid,CadPedido.Api.ApiModel.ProdutoApiModel)">
             <summary>
@@ -158,7 +168,8 @@
             <param name="id"></param>
             <param name="produtoApiModel"></param>
             <response code="200"> Sucesso </response>
-            <response code="404"> Requisição</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
         <member name="M:CadPedido.Api.Controllers.ProdutoController.Delete(System.Guid)">
             <summary>
@@ -166,7 +177,8 @@
             </summary>
             <param name="id"></param>
             <response code="204"> Item Deletado com sucesso</response>
-            <response code="404"> Requisição</response>
+            <response code="404"> Não Encontrado</response>
+            <response code="500"> Erro Interno do Servidor</response>
         </member>
     </members>
 </doc>

@@ -1,0 +1,551 @@
+{
+	"info": {
+		"_postman_id": "b91ee1d1-0213-46cd-ab4e-0a0be8ce0247",
+		"name": "CadastroPedido",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Autenticação",
+			"item": [
+				{
+					"name": "Registrar",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"hugoosvaldohenriquebernardes_@sabereler.com.br\",\r\n  \"password\": \"1A2b@6\",\r\n  \"confirmPassword\": \"1A2b@6\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44366/api/Auth/nova-conta",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Auth",
+								"nova-conta"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"email\": \"hugoosvaldohenriquebernardes_@sabereler.com.br\",\r\n  \"password\": \"1A2b@6\" \r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:44366/api/Auth/login",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "GetProduto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Cliente",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetProdutoPorId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Produto/71b2207a-e64c-4577-ecc7-08d96b5bd751",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Produto",
+								"71b2207a-e64c-4577-ecc7-08d96b5bd751"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostProduto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Cliente/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Cliente",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutProduto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Cliente/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Cliente",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteProduto",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Produto/bb1e741c-ee43-4e24-a5e5-08d96b5936a0",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Produto",
+								"bb1e741c-ee43-4e24-a5e5-08d96b5936a0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "GetPedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Pedido",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Pedido"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetPedidoPorId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Pedido/71b2207a-e64c-4577-ecc7-08d96b5bd751",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Pedido",
+								"71b2207a-e64c-4577-ecc7-08d96b5bd751"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostPedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Pedido/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Pedido",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutPedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Pedido/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Pedido",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Deletepedido",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Pedido/bb1e741c-ee43-4e24-a5e5-08d96b5936a0",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Pedido",
+								"bb1e741c-ee43-4e24-a5e5-08d96b5936a0"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cliente",
+			"item": [
+				{
+					"name": "GetCliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Cliente",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Cliente"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetClientePorId",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Cliente/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Cliente",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PostCliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Cliente/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Cliente",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PutCliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Cliente/",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Cliente",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeleteCliente",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYmYiOjE2MzAyNzc2ODgsImV4cCI6MTYzMDI4MTI4OCwiaWF0IjoxNjMwMjc3Njg4LCJpc3MiOiJDYWRQZWRpZG9zQVBJRGFuaWVsTHVjYXMiLCJhdWQiOiJodHRwczovL2xvY2FsaG9zdCJ9.lO74d4hSlJa0ZRtmnj-rOYnS2P5V5rOfU5WsRx0hZKE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:44366/api/Cliente/3fa85f64-5717-4562-b3fc-2c963f66afa6",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "44366",
+							"path": [
+								"api",
+								"Cliente",
+								"3fa85f64-5717-4562-b3fc-2c963f66afa6"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

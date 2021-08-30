@@ -1,4 +1,4 @@
-﻿using CadPedido.Business.Interfaces;
+﻿using CadPedido.Business.Interfaces.IRepository;
 using CadPedido.Business.Interfaces.IServices;
 using CadPedido.Business.Models;
 using System;

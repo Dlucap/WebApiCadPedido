@@ -48,12 +48,12 @@ namespace CadPedido.Business.Services
 
     private bool VerificaItemPedidoJaExiste(Guid id)
     {
-      throw new NotImplementedException();
+      return _pedidoItemRepository.VerificaItemPedidoJaExiste(id);
     }
 
     private bool VerificaPedidoJaExiste(Guid pedidoId)
     {
-      throw new NotImplementedException();
+      return _pedidoItemRepository.VerificaPedidoJaExiste(pedidoId);
     }
     public void Dispose()
     {

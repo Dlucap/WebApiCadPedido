@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace CadPedido.Business.Services
 {
-  public class PedidoServices : IPedidoService
+  public class PedidoService : IPedidoService
   {
     private readonly IPedidoRepository _pedidoRepository;
 
-    public PedidoServices(IPedidoRepository pedidoRepository)
+    public PedidoService(IPedidoRepository pedidoRepository)
     {
       _pedidoRepository = pedidoRepository;
     }
