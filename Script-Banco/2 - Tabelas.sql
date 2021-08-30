@@ -48,13 +48,6 @@ CREATE TABLE [pedidoItens] (
 );
 GO
 
-CREATE INDEX [IX_pedidoItens_PedidoId] ON [pedidoItens] ([PedidoId]);
-GO
-
-CREATE UNIQUE INDEX [IX_pedidoItens_ProdutoId] ON [pedidoItens] ([ProdutoId]);
-GO
-
-
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
 VALUES (N'20210830031101_Inicial', N'5.0.9');
 GO

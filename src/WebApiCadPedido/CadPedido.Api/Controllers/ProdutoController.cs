@@ -31,7 +31,7 @@ namespace CadPedido.Api.Controllers
 
     /// <summary>
     /// Retorna todos os produtos cadastrados 
-    /// <returns></returns>
+    /// <returns>Retorna todos os produtos cadastrados </returns>
     /// <response code="200"> Sucesso </response>
     /// <response code="404"> Não Encontrado</response>
     /// <response code="500"> Erro Interno do Servidor</response>
